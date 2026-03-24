@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="box_00">
+  <link name="l_0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/0/0.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/0/0.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_1">
+    <visual>
+      <origin xyz="0.0025000000000000044 -0.2425 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/1/1.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0025000000000000044 -0.2425 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/1/1.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_2">
+    <visual>
+      <origin xyz="0.33249999999999996 0.0025000000000000044 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/2/2.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.33249999999999996 0.0025000000000000044 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/2/2.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_3">
+    <visual>
+      <origin xyz="0.0025000000000000044 0.2525 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/3/3.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0025000000000000044 0.2525 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/3/3.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_4">
+    <visual>
+      <origin xyz="-0.32250000000000006 0.0025000000000000044 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/4/4.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.32250000000000006 0.0025000000000000044 -0.06250000000000006" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./box_00_objs/4/4.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_1" type="revolute">
+    <parent link="l_0" />
+    <child link="l_1" />
+    <origin xyz="-0.0025000000000000044 0.2425 0.06250000000000006" rpy="0 0 0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-2.3876" upper="2.1991" effort="10" velocity="10" />
+  </joint>
+  <joint name="j_2" type="revolute">
+    <parent link="l_0" />
+    <child link="l_2" />
+    <origin xyz="-0.33249999999999996 -0.0025000000000000044 0.06250000000000006" rpy="0 0 0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-2.3876" upper="2.1991" effort="10" velocity="10" />
+  </joint>
+  <joint name="j_3" type="revolute">
+    <parent link="l_0" />
+    <child link="l_3" />
+    <origin xyz="-0.0025000000000000044 -0.2525 0.06250000000000006" rpy="0 0 0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-2.0735" upper="2.5761" effort="10" velocity="10" />
+  </joint>
+  <joint name="j_4" type="revolute">
+    <parent link="l_0" />
+    <child link="l_4" />
+    <origin xyz="0.32250000000000006 -0.0025000000000000044 0.06250000000000006" rpy="0 0 0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-2.0735" upper="2.5761" effort="10" velocity="10" />
+  </joint>
+</robot>

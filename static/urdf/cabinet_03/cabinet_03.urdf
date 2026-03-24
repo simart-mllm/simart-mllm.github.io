@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="cabinet_03">
+  <link name="l_0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./cabinet_03_objs/0/0.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./cabinet_03_objs/0/0.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_1">
+    <visual>
+      <origin xyz="0.0025000000000000044 0.0025000000000000044 0.0025000000000000044" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./cabinet_03_objs/1/1.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0025000000000000044 0.0025000000000000044 0.0025000000000000044" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./cabinet_03_objs/1/1.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_1" type="prismatic">
+    <parent link="l_0" />
+    <child link="l_1" />
+    <origin xyz="-0.0025000000000000044 -0.0025000000000000044 -0.0025000000000000044" rpy="0 0 0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.1100" upper="0.210" effort="10" velocity="10" />
+  </joint>
+</robot>
