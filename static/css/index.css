@@ -2,7 +2,6 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-
 .footer .icon-link {
     font-size: 25px;
     color: #000;
@@ -13,80 +12,8 @@ body {
     margin-bottom: 5px;
 }
 
-.dnerf {
-  font-variant: small-caps;
-}
-
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
-}
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
-.publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
 .publication-title {
     font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
-}
-
-.publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
-}
-
-.publication-authors a:hover {
-    text-decoration: underline;
-}
-
-.author-block {
-  display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
 }
 
 .publication-video {
@@ -127,31 +54,90 @@ body {
   margin: 0;
 }
 
+/* 1. Logo 的基本样式与间距 */
+.glass-card .project-logo {
+  height: 6rem; /* 保持原定高度 */
+  margin-bottom: 1rem; /* 代替原本的 <br> 控制间距 */
+  display: inline-block; /* 👑 必须设为 inline-block 或 block，3D 变换才有效 👑 */
+  
+  /* 定义过渡动画（时间设为 0.4s，使用 pop-out 类型的贝塞尔曲线，更灵动） */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              filter 0.4s ease, 
+              box-shadow 0.4s ease;
 
-.interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
+  /* 2D 和 3D 的渲染优化，让动画更平滑 */
+  will-change: transform, filter; 
+  -webkit-font-smoothing: antialiased;
 }
 
-.interpolation-panel .interpolation-image {
+.glass-card .project-logo:hover {
+  transform: scale(1.1) rotateX(10deg) rotateY(-5deg) translateY(-8px);
+  /* 使用 drop-shadow 而不是 box-shadow，让光晕贴合图片本身轮廓，不产生方框 */
+  filter: drop-shadow(0 0 10px rgba(78, 172, 255, 0.9)) /* 弥散蓝光 */
+          drop-shadow(0 0 20px rgba(78, 172, 255, 0.5)); /* 更大的外围光晕 */
+}
+
+/* 3. (可选) 给父级卡片增加透视，让 3D 效果更明显 */
+.glass-card {
+  perspective: 1000px; /* 增加透视距离，让 Logo 的 3D 倾斜看起来更有深度 */
+}
+
+/* =========================================
+新增：沉浸式全屏视频背景与毛玻璃效果
+========================================= */
+.hero.video-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; /* 让头部区域足够大，展示更多视频细节 */
+  display: flex;
+  align-items: center;
+  background-color: #000; /* 视频加载前的底色 */
+}
+
+/* 背景视频铺满容器 */
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+  object-fit: cover; /* 保证视频等比例放大铺满全屏，不拉伸 */
+}
+
+/* 整体遮罩，压暗或泛白一点边缘，让视觉聚焦在中间 */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  border-radius: 5px;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 100%);
+  z-index: 1;
 }
 
-.interpolation-video-column {
-}
+/* 悬浮的毛玻璃卡片 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.3); /* 半透明白底 */
+  backdrop-filter: blur(12px); /* 毛玻璃模糊效果 */
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15); /* 柔和的阴影制造立体感 */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 2; /* 确保在视频和遮罩之上 */
 
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
   width: 100%;
+  max-width: 1000px; /* 打破原本的窄容器限制，拉长卡片 */
+  margin: 0 auto; /* 这一行必须取消注释，用来保证卡片在屏幕中间（左右居中） */
+  margin-top: 15vh; /* 给一个正数，把卡片往下推。数值越大，卡片越靠下 */
+  transition: transform 0.3s ease;
 }
-#interpolation-image-wrapper img {
-  border-radius: 5px;
+
+.glass-card:hover {
+  transform: translateY(-5px); /* 鼠标悬浮时微微抬起，增加互动感 */
 }

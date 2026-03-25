@@ -28,7 +28,6 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <link rel="stylesheet"
@@ -41,22 +40,6 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <style>
-
-    pre {
-      background-color: #f4f4f4;
-      padding: 1px;
-      border-radius: 8px;
-      max-height: 300px;
-      overflow: auto;
-      font-size: 14px;
-      border: 1px solid #ddd;
-    }
-
-    code {
-      font-family: monospace;
-      white-space: pre;
-    }
-
     .section {
       margin-top: 1px;
       margin-bottom: 1px;
@@ -68,18 +51,6 @@
     color: #333;
     text-align: center; 
   }
-
-  .iframe-container {
-      display: flex;
-      width: 100%;
-      height: 300px; /* 可以按需改为 100vh 或 auto */
-    }
-
-    .iframe-container iframe {
-      flex: 1;
-      border: none;
-      height: 100%;
-    }
 
     .publication-title {
     font-family: "Russo One", "Microsoft YaHei", "PingFang SC", sans-serif;
@@ -99,13 +70,6 @@
     font-weight: 300; 
   }
 
-
-  .publication-title .paper-author {
-    color: #363636;
-    font-size: 0.4em;    
-    font-weight: 400; 
-  }
-
   .publication-titleaff {
     font-family: "Russo One", "Microsoft YaHei", "PingFang SC", sans-serif;
     letter-spacing: 0.08em;    
@@ -113,21 +77,11 @@
   margin-top: 0.1rem;    /* 视情况再微调上下外边距 */
   margin-bottom: 0.1rem;
   }
-  .publication-titleaff .paper-aff {
-    color: #363636;
-    font-size: 0.4em;    
-    font-weight: 400; 
-  }
+
   .publication-titleaff .paper-au {
     color: #363636;
     font-size: 0.4em;    
     font-weight: 400; 
-  }
-
-  .publication-icon {
-    font-family: "Russo One", "Microsoft YaHei", "PingFang SC", sans-serif;
-    letter-spacing: 0.08em;                 /* 稍微拉开字距 */
-    color: #363636;
   }
 
   .footer .columns .column .content {
@@ -151,9 +105,7 @@
   padding-top: 3rem;
   padding-bottom: 10rem;     /* 比原来更大一点 */
 }
-.navbar {
-  display: none;
-}
+
 .link-block {
   display: inline-block;
   margin: 0 0.8rem;   /* 左右间距 → 数字越大按钮之间越开 */
@@ -261,130 +213,72 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-
-  </div>
-</nav>
-
-
-<section class="hero">
-
+<section class="hero video-hero">
   
-  <div class="hero-body">
-    <div class="container is-max-desktop">
+  <video class="hero-bg-video" autoplay muted loop playsinline>
+    <source src="static/videos/teaser_video.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-body" style="width: 100%; z-index: 2;">
+    <div class="container is-fluid">
       <div class="columns is-centered">
-        <div class="column has-text-centered">
+        
+        <div class="column has-text-centered glass-card is-four-fifths">
+          
+          <img src="./static/videos/simart_logo.png" class="project-logo" alt="SIMART Logo"><br>
 
-          <img src="./static/videos/simart_logo.png" style="height: 6rem; margin-bottom: 20px;">
+          <img src="./static/images/simart_word.png" style="height: 5rem; margin-bottom: 0px;">
+          
           <h1 class="title is-1 publication-title">
-            <span class="paper-main">SIMART:</span><br>
-
             <span class="paper-sub">Decomposing Monolithic Meshes into Sim-ready <br> Articulated Assets via MLLM</span>
           </h1>
 
-          <div class="title is-1 publication-title">
-
-  <!-- <h3 class="title is-3 title"><a href="https://neurips.cc/">NeurIPS 2025 (<span style="color:red;">Spotlight</span>)</a></h3> -->
-            
-          <!-- </div>
-
-          <div class="title is-1 publication-titleaff">
-            <span class="paper-au">
-              Anonymous author<sup></sup></span>
-            
-          </div> -->
-
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-
-              <span class="link-block">
-                <a href="TODO"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>ArXiv</span>
-                </a>
-              </span>
-             
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="TODO"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code(coming soon)</span>
-                  </a>
-              </span>
-
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://youtu.be/Facqav-LthQ?si=peRWilQQ0rozVfe-"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-
-              <!-- Data Link.
-              <span class="link-block">
-                <a href="TODO"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fa fa-database"></i>
-                  </span>
-                  <span>Dataset</span>
-                </a>
-              </span> -->
-                 
-            </div>
-
-            <!-- Teaser Video -->
-            <br>
-            <div class="columns is-centered has-text-centered">
-              <div class="column is-four-fifths">
-                <div class="publication-video">
-                  <video autoplay muted loop playsinline controls style="width: 100%;">
-                    <source src="static/videos/teaser_video.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
-            </div>
-            <!--/ Teaser Video -->
-
+          <div class="publication-links" style="margin-top: 2rem;">
+            <span class="link-block">
+              <a href="TODO" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>ArXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="TODO" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://www.youtube.com/watch?v=Facqav-LthQ" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-youtube"></i></span>
+                <span>Video</span>
+              </a>
+            </span>
           </div>
+          
         </div>
+
       </div>
     </div>
   </div>
-
-  <!-- Paper video. -->
-  <br>
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-      <h2 class="title is-4">Demo Video</h2>
-      <div class="publication-video">
-        <iframe src="https://www.youtube.com/embed/Facqav-LthQ?si=0ZJjcbOen3Ln9OFt"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
-
-    </div>
-    
-  </div>
-  
 </section>
+
+<section class="section" id="demo-video" style="padding-top: 0; padding-bottom: 4rem;">
+  <div class="container" style="max-width: 1200px; margin-top: 60px; position: relative; z-index: 10;">
+    <div class="columns is-centered">
+      
+      <div class="column is-full" style="padding: 0 1rem;">
+        
+        <div class="publication-video" style="border-radius: 20px; overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,0.4); background-color: #000;">
+          <iframe src="https://www.youtube.com/embed/Facqav-LthQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border: none;"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="section">
 
   <br>
@@ -464,17 +358,12 @@
                   <!-- Button List -->
                   <div class="buttons is-centered" id="model-list" style="margin-bottom: 20px;">
                     <!-- Will be populated by JS, hardcoded for now as placeholders -->
-                    <!-- <button class="gallery-button is-active" data-model="bottle_00" data-label="Bottle">Bottle</button> -->
                     <button class="gallery-button" data-model="bottle_01" data-label="Bottle">Bottle</button>
                     <button class="gallery-button" data-model="box_00" data-label="Box">Box</button>
                     <button class="gallery-button" data-model="box_02" data-label="Box">Box</button>
                     <button class="gallery-button" data-model="cabinet_03" data-label="Cabinet">Cabinet</button>
                     <button class="gallery-button" data-model="fridge_00" data-label="Fridge">Fridge</button>
                     <button class="gallery-button" data-model="laptop_00" data-label="Laptop">Laptop</button>
-                    <!-- <button class="gallery-button" data-model="example" data-label="Kettle">Kettle</button>
-                    <button class="gallery-button" data-model="example" data-label="Laptop">Laptop</button>
-                    <button class="gallery-button" data-model="example" data-label="Microwave">Microwave</button>
-                    <button class="gallery-button" data-model="example" data-label="Oven">Oven</button> -->
                   </div>
 
                   <!-- Mode Switcher -->
@@ -623,7 +512,7 @@
         
         // If specific path missing, use defaults/placeholders
         if (!path || path === 'TODO') {
-            if (currentMode === 'glb') path = './static/models/example.glb';
+            if (currentMode === 'glb') path = './static/models/box_02.glb';
             if (currentMode === 'urdf') path = 'static/urdf/box_02/box_02.urdf'; // Use box as placeholder URDF
         }
 
